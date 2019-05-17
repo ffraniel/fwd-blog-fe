@@ -13,7 +13,6 @@ const Home = () => {
       let result = await client.fetch(
           `*[_type == "post"]`
         );
-        console.log(result)
         setPosts(result);
         setLoading(false);
     };

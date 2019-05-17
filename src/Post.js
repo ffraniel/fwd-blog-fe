@@ -18,7 +18,7 @@ const Post = (props) => {
         setArticleLoading(false);
     };
     getArticle();
-  }, []);
+  }, [props.match.params.postSlug]);
 
   return (
     <section className="post">

@@ -7,7 +7,7 @@ const ArticlesList = (props) => {
   return (
       <section className="articles-list">
         {posts.map(post => (
-          <section className="article-container">
+          <section key={post._id} className="article-container">
             <Link className="article-link" to={`/post/${post.slug.current}`}>{post.title}</Link>
           </section>
         ))
