@@ -1,14 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import client from './client';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from './Home';
+import Post from './Post';
+import About from './About';
+import NoMatch from './NoMatch';
+import Header from './components/Header';
 
 function App() {
   
   const [posts, setPosts] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  
-  
   useEffect(() => {
     const getAllPosts = async () => {
       let result = await client.fetch(
@@ -21,16 +25,17 @@ function App() {
     getAllPosts();
   }, []);
 
-
   return (
     <div className="App">
-      
-      {loading && <h1>Loading</h1>}
-      {!loading && posts.map(post => (
-        <section className="post">
-          <h1>{post.title}</h1>
-        </section>
-      ))}
+      <Router>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route path="/about" component={About}/>
+          <Route path="/post/:post-slug" component={Post}/>
+          <Route component={NoMatch}/>
+        </Switch>
+      </Router>
     </div>
   );
 }
