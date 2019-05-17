@@ -1,24 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react';
 import './App.css';
+import client from './client';
 
 function App() {
+  
+  const [posts, setPosts] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  
+  
+  useEffect(() => {
+    const getAllPosts = async () => {
+      let result = await client.fetch(
+          `*[_type == "post"]`
+        );
+        console.log(result)
+        setPosts(result);
+        setLoading(false);
+    };
+    getAllPosts();
+  }, []);
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      {loading && <h1>Loading</h1>}
+      {!loading && posts.map(post => (
+        <section className="post">
+          <h1>{post.title}</h1>
+        </section>
+      ))}
     </div>
   );
 }
