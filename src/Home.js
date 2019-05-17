@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './Home.css';
 import client from './client';
+import ArticlesList from './components/ArticlesList';
 
 const Home = () => {
 
@@ -21,10 +22,13 @@ const Home = () => {
 
   return (
     <section className="home">
-      <h1 className="title">Sometimes I code and think and sometimes i just code</h1>
-      <h3 className="sub-title">Fran Whitehead</h3>
-      <p className="sub-sub-title">Javascript and Web developer </p>
-      
+      <section className="title-bar">
+        <h1 className="title">Sometimes I code and think and sometimes i just code</h1>
+        <h3 className="sub-title">Fran Whitehead</h3>
+        <p className="sub-sub-title">Javascript and Web developer </p>
+      </section>
+      {loading && <h1>Loading</h1>}
+      {!loading && <ArticlesList posts={posts}/>}      
     </section>
   )
 };

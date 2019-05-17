@@ -1,0 +1,16 @@
+.articles-list {
+}
+
+.article-link {
+  text-decoration: none;
+  color: var(--primaryLinkColour);
+};
+
+.article-link:hover {
+  color: purple;
+};
+
+.article-container {
+  background-color: yellow !important;
+  border: yellow solid 1px;
+}

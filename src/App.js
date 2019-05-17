@@ -16,7 +16,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route path="/about" component={About}/>
-          <Route path="/post/:post-slug" component={Post}/>
+          <Route path="/post/:postSlug" component={Post}/>
           <Route component={NoMatch}/>
         </Switch>
       </Router>
