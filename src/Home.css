@@ -1,0 +1,16 @@
+.home {
+  padding-top: var(--navPadding);
+
+}
+
+.title {
+  color: yellow;
+}
+
+.sub-title {
+  color: purple;
+}
+
+.sub-sub-title {
+  color: green;
+}

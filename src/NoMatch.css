@@ -1,0 +1,12 @@
+.no-match {
+  padding-top: var(--navPadding);
+}
+
+.button-home {
+  text-decoration: none;
+  color: var(--primaryLinkColour);
+}
+
+.button-home:hover {
+  color: var(--primaryLinkHover);
+}

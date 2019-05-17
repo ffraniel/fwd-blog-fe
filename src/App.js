@@ -1,6 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import './App.css';
-import client from './client';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from './Home';
 import Post from './Post';
@@ -9,21 +8,6 @@ import NoMatch from './NoMatch';
 import Header from './components/Header';
 
 function App() {
-  
-  const [posts, setPosts] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const getAllPosts = async () => {
-      let result = await client.fetch(
-          `*[_type == "post"]`
-        );
-        console.log(result)
-        setPosts(result);
-        setLoading(false);
-    };
-    getAllPosts();
-  }, []);
 
   return (
     <div className="App">

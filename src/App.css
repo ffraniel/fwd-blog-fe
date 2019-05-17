@@ -1,3 +1,13 @@
-.App {
-  text-align: center;
+:root {
+  --nearBlack: rgb(15, 15, 15);
+  --nearWhite: rgb(253, 253, 253);
+  --navPadding: 30px;
+  --primaryLinkColour: rgb(253, 253, 253);
+  --primaryLinkHover: green;
+}
+
+body {
+  margin: 0;
+  background-color: var(--nearBlack);
+  color: var(--nearWhite);
 }

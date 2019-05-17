@@ -1,0 +1,18 @@
+.nav {
+  background: rgb(255, 155, 222);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.nav-link {
+  color: white;
+  font-size: 1.3rem;
+  margin: 10px;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: rgb(73, 192, 73);
+}
