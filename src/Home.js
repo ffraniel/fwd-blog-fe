@@ -22,9 +22,9 @@ const Home = () => {
   return (
     <section className="home">
       <section className="title-bar">
-        <h1 className="title">Sometimes I code and think and sometimes i just code</h1>
         <h3 className="sub-title">Fran Whitehead</h3>
         <p className="sub-sub-title">Javascript and Web developer </p>
+        <p className="tag-line">I'm just a man, standing in front of an internet, asking it to love me.</p>
       </section>
       {loading && <h1>Loading</h1>}
       {!loading && <ArticlesList posts={posts}/>}      

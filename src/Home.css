@@ -1,6 +1,12 @@
 .home {
+  padding: 5px;
   padding-top: var(--navPadding);
+}
 
+.title-bar {
+  margin: 0;
+  padding: 0;
+  margin-top: 15px;
 }
 
 .title {
@@ -9,8 +15,15 @@
 
 .sub-title {
   color: purple;
+  margin: 8px 0;
 }
 
 .sub-sub-title {
   color: green;
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+.tag-line {
+  font-size: 0.8rem;
 }

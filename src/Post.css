@@ -1,3 +1,8 @@
 .post {
   padding-top: var(--navPadding)
 }
+
+.article {
+  margin: 10px auto;
+  max-width: 75%;
+}

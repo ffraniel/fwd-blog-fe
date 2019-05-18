@@ -2,7 +2,6 @@ import React, { useState, useEffect} from 'react';
 import './Post.css';
 import client from './client';
 
-
 const Post = (props) => {
 
   const [article, setArticle] = useState(null);
@@ -43,8 +42,10 @@ const Post = (props) => {
       {articleLoading && <h1>Loading</h1>}
       {!articleLoading && 
         <article className="article">
-          <h3>{article.title}</h3>  
-          {toPlainText(article.body)}  
+          <h3>{article.title}</h3> 
+          <p>
+            {toPlainText(article.body)}  
+          </p>
         </article>}
     </section>
   )

@@ -4,6 +4,9 @@
 .article-link {
   text-decoration: none;
   color: var(--primaryLinkColour);
+  padding: 3px;
+  margin: 3px 0;
+  display: inline-block;
 };
 
 .article-link:hover {

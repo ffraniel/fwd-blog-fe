@@ -1,7 +1,7 @@
 :root {
   --nearBlack: rgb(15, 15, 15);
   --nearWhite: rgb(253, 253, 253);
-  --navPadding: 30px;
+  --navPadding: 75px;
   --primaryLinkColour: rgb(253, 253, 253);
   --primaryLinkHover: green;
 }
