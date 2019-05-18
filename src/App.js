@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from './Home';
@@ -6,13 +6,23 @@ import Post from './Post';
 import About from './About';
 import NoMatch from './NoMatch';
 import Header from './components/Header';
+import MobNav from './components/MobNav';
 
 function App() {
+
+  const [mobNavOpen, setMobNavOpen] = useState(false);
 
   return (
     <div className="App">
       <Router>
-        <Header />
+        <MobNav 
+          setMobNavOpen={setMobNavOpen} 
+          mobNavOpen={mobNavOpen} 
+        />
+        <Header 
+          setMobNavOpen={setMobNavOpen} 
+          mobNavOpen={mobNavOpen} 
+        />
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route path="/about" component={About}/>

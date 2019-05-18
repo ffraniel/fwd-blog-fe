@@ -3,15 +3,32 @@ import './Header.css';
 import { Link } from "react-router-dom";
 
 
-const Header = () => {
+const Header = (props) => {
+  const {mobNavOpen, setMobNavOpen} = props;
+
   return (
-    <nav className="nav" role="navigation">
-      <Link className="nav-link" to='/about' >About</Link>
-      <a className="nav-link" href='https://franwebdev.uk/'>franwebdev.uk</a>
-      <Link className="nav-link" to='/' >
-        <h3 className="title">Sometimes I code and Think <br/> and Sometimes I Just Code</h3>
-      </Link>
-    </nav>
+    <section className="header">
+      <nav 
+        className="nav" 
+        role="navigation">
+        <section 
+          className="mobile-nav-burger"
+          onClick={()=>{
+            setMobNavOpen(!mobNavOpen);
+          }} >
+          <span></span>
+          <span></span>
+          <span></span>
+        </section> 
+        <section className="dekstop-nav">
+          <Link className="nav-link" to='/about' >About</Link>
+          <a className="nav-link" href='https://franwebdev.uk/'>franwebdev.uk</a>
+        </section>
+        <Link className="nav-link" to='/' >
+          <h3 className="title">Sometimes I code and Think <br/> and Sometimes I Just Code</h3>
+        </Link>
+      </nav>
+    </section>
   )
 };
 
