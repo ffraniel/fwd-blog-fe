@@ -24,7 +24,7 @@ const Home = () => {
       <section className="title-bar">
         <h3 className="sub-title">Fran Whitehead</h3>
         <p className="sub-sub-title">Javascript and Web developer </p>
-        <p className="tag-line">I'm just a man, standing in front of an internet, asking it to love me.</p>
+        <p className="tag-line">I'm just a boy standing in front of the internet, asking it to love me.</p>
       </section>
       {loading && <h1>Loading</h1>}
       {!loading && <ArticlesList posts={posts}/>}      
