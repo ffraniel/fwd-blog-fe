@@ -57,5 +57,13 @@
 
 .dekstop-nav {
   display: none;
-  border: solid red 1px;
+}
+
+@media only screen and (min-width: 650px) {
+  .dekstop-nav {
+    display: flex;
+  }
+  .mobile-nav-burger {
+    display: none;
+  }
 }
