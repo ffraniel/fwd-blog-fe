@@ -13,7 +13,12 @@ const Home = () => {
       let result = await client.fetch(
           `*[_type == "post"]`
         );
-        setPosts(result);
+        const resultWithDate = result.map(post => {
+          let dateObj = new Date(post._createdAt);
+          post.dateString = dateObj.toDateString();
+          return post;
+        });
+        setPosts(resultWithDate);
         setLoading(false);
     };
     getAllPosts();
