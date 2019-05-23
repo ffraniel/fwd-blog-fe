@@ -1,6 +1,8 @@
 import React, { useState, useEffect} from 'react';
 import './Post.css';
 import client from './client';
+import readableDate from './utility/readableDate';
+import imageURLBuilder from './utility/imageURLBuilder';
 
 const Post = (props) => {
 
@@ -12,49 +14,37 @@ const Post = (props) => {
       let [result] = await client.fetch(
           `*[_type == "post" && slug.current == "${props.match.params.postSlug}"]`
         );
-        let dateObj = new Date(result._createdAt);
-        result.dateString = dateObj.toDateString();
-        console.log(result)
-        setArticle(result);
+        const resultWithDate = readableDate(result);
+        setArticle(resultWithDate);
         setArticleLoading(false);
     };
     getArticle();
   }, [props.match.params.postSlug]);
-
-  function toPlainText(blocks = []) {
-    //  tweak this
-    return blocks
-      // loop through each block
-      .map(block => {
-        // if it's not a text block with children, 
-        // return nothing
-
-        if (block._type === 'block') {
-          // loop through the children spans, and join the
-          // text strings
-          return block.children.map(child => child.text).join('');
-        }
-        if (block._type === 'image') {
-
-          
-        }
-        if (block._type !== 'block' || !block.children) {
-          return ''
-        }
-      })
-      // join the parapgraphs leaving split by two linebreaks
-      .join('\n\n')
-  };
 
   return (
     <section className="post">
       {articleLoading && <h1>Loading</h1>}
       {!articleLoading && 
         <article className="article">
-          <h3>{article.title}</h3> 
-          <p>
-            {toPlainText(article.body)}  
-          </p>
+          <h3 className="article-title">{article.title}</h3> 
+          <p className="article-date">{article.dateString || ''}</p>
+          {article && article.body.map(block => {
+            if (block._type === 'block') {
+              let textBlock = block.children.map(child => child.text).join('');
+              return (
+                <p className="article-text-block">{textBlock}</p>
+              );
+            };
+            if (block._type === 'image') {
+              let imageURL = imageURLBuilder(block.asset._ref, 300);
+              return (
+                <img src={imageURL} alt={article.title + ' related'} />
+              );         
+            };
+            return (
+              <></>
+            )
+          })};
         </article>}
     </section>
   )

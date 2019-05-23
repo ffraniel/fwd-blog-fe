@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './Home.css';
 import client from './client';
+import readableDate from './utility/readableDate';
 import ArticlesList from './components/ArticlesList';
 
 const Home = () => {
@@ -13,11 +14,7 @@ const Home = () => {
       let result = await client.fetch(
           `*[_type == "post"]`
         );
-        const resultWithDate = result.map(post => {
-          let dateObj = new Date(post._createdAt);
-          post.dateString = dateObj.toDateString();
-          return post;
-        });
+        const resultWithDate = result.map(readableDate);
         setPosts(resultWithDate);
         setLoading(false);
     };
