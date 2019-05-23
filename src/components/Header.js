@@ -21,7 +21,7 @@ const Header = (props) => {
           <span></span>
         </section> 
         <section className="dekstop-nav">
-          <Link className="nav-link" to='/about' >About</Link>
+          <Link className="nav-link" to='/' >Home</Link>
           <a className="nav-link" href='https://franwebdev.uk/'>franwebdev.uk</a>
         </section>
         <Link className="nav-link" to='/' >

@@ -13,7 +13,6 @@ const MobNav = props => {
   return (
     <section className={navClass}>
       <Link className="mob-nav-link" to="/" onClick={closeNav} >Home</Link>
-      <Link className="mob-nav-link" to="/about" onClick={closeNav} >About</Link>
       <a className="mob-nav-link" href="https://franwebdev.uk/" onClick={closeNav}>franwebdev.uk</a>
       <button
         onClick={() => {
