@@ -1,5 +1,4 @@
 .home {
-  padding: 5px;
   padding-top: var(--navPadding);
 }
 
@@ -27,4 +26,11 @@
 .tag-line {
   font-size: 0.8rem;
   font-weight: 300;
+}
+
+.footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  background-color: rgb(122, 122, 112);
 }
