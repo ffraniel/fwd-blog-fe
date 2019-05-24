@@ -8,8 +8,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  display: flex;
-
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .nav-link {
@@ -23,9 +23,15 @@
   color: rgb(73, 192, 73);
 }
 
+.nav-link-title {
+  grid-column: 3;
+  justify-self: end;
+  margin: 10px 25px;
+  text-decoration: none;
+}
+
 .title {
-  display: inline-block;
-  font-size: 0.9rem;
+  font-size: 0.7em;
   padding: 0;
   margin: 2px 0;
 }
@@ -61,9 +67,13 @@
 
 @media only screen and (min-width: 650px) {
   .dekstop-nav {
-    display: flex;
+    display: block;
+    margin: 20px;
   }
   .mobile-nav-burger {
     display: none;
+  }
+  .title {
+    font-size: 0.9rem;
   }
 }
