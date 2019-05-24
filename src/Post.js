@@ -48,13 +48,13 @@ const Post = (props) => {
             if (block._type === 'image') {
               let imageURL = imageURLBuilder(block.asset._ref, 300);
               return (
-                <img src={imageURL} alt={article.title + ' related'} key={block._key} />
+                <img className="article-text-image" src={imageURL} alt={article.title + ' related'} key={block._key} />
               );         
             };
             return (
               <></>
             )
-          })};
+          })}
         </article>}
     </section>
   )
