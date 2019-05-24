@@ -6,6 +6,7 @@ import Post from './Post';
 import NoMatch from './NoMatch';
 import Header from './components/Header';
 import MobNav from './components/MobNav';
+import CategoriesList from './CategoriesList';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route path="/post/:postSlug" component={Post}/>
+          <Route path="/category/:theme" component={CategoriesList}/>
           <Route component={NoMatch}/>
         </Switch>
       </Router>

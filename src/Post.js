@@ -12,7 +12,17 @@ const Post = (props) => {
   useEffect(() => {
     const getArticle = async () => {
       let [result] = await client.fetch(
-          `*[_type == "post" && slug.current == "${props.match.params.postSlug}"]`
+          `*[_type == "post" && slug.current == "${props.match.params.postSlug}"]
+          {
+            _id,
+            _createdAt,
+            title,
+            slug,
+            body,
+            author,
+            categories
+          } 
+            `
         );
         const resultWithDate = readableDate(result);
         setArticle(resultWithDate);
@@ -32,13 +42,13 @@ const Post = (props) => {
             if (block._type === 'block') {
               let textBlock = block.children.map(child => child.text).join('');
               return (
-                <p className="article-text-block">{textBlock}</p>
+                <p className="article-text-block" key={block._key}>{textBlock}</p>
               );
             };
             if (block._type === 'image') {
               let imageURL = imageURLBuilder(block.asset._ref, 300);
               return (
-                <img src={imageURL} alt={article.title + ' related'} />
+                <img src={imageURL} alt={article.title + ' related'} key={block._key} />
               );         
             };
             return (

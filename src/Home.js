@@ -15,7 +15,7 @@ const Home = () => {
   useEffect(() => {
     const getAllPosts = async () => {
       let result = await client.fetch(
-          `*[_type == "post"]`
+          `*[_type == "post"] { _id, title, slug, _createdAt }`
       );
       const resultWithDate = result.map(readableDate);
       setPosts(resultWithDate);
@@ -23,8 +23,12 @@ const Home = () => {
     };
     const getAllCategories = async () => {
       let categoriesResults = await client.fetch(
-        '*[_type == "category"]'
+        `*[_type == "category"]{
+          _id, title,
+          "posts": *[_type == "post" && references(^._id)].title
+        }`
       );
+      console.log(categoriesResults)
       setCategories(categoriesResults);
       setCatLoading(false);
     };
@@ -39,10 +43,12 @@ const Home = () => {
         <p className="sub-sub-title">Javascript and Web developer </p>
         <p className="tag-line">I'm just a boy standing in front of the internet, asking it to love me.</p>
       </section>
-      {catLoading && <p>Loading Categories</p>}
-      {!catLoading && <Categories categories={categories} />}
       {loading && <h1>Loading</h1>}
       {!loading && <ArticlesList posts={posts}/>}      
+      <footer className="footer">
+        {catLoading && <p>Loading Categories</p>}
+        {!catLoading && <Categories categories={categories} />}
+      </footer>
     </section>
   )
 };
