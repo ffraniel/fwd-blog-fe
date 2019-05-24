@@ -8,23 +8,49 @@ const CategoriesList = (props) => {
 
   const [themedList, setThemedList] = useState(null);
   const [loadingThemedList, setLoadingThemedList] = useState(true);
+  const [noResult, setNoResult] = useState(false);
 
   
   useEffect(() => {
     const getPostsByCategory = async () => {
       let postsByTheme = await client.fetch(
-          `*[_type == "post"]`
+        `*[_type == "category" && title == "${theme}"]{
+          _id, title,
+          "posts": *[_type == "post" && references(^._id)].title 
+        }`
       );
-      setThemedList(postsByTheme);
-      setLoadingThemedList(false);
+      if (postsByTheme.length === 0) {
+        setNoResult(true);
+      } else {
+        console.log(postsByTheme)
+        setThemedList(postsByTheme);
+        setLoadingThemedList(false);
+      }
     };
     getPostsByCategory(theme);
   }, [theme]);;
 
-  
+  if (noResult) {
+    return (
+      <section className="categories-list">
+        <h3>No results found for '{theme}'.</h3>
+      </section>
+    )    
+  }
+  console.log(themedList)
   return (
     <section className="categories-list">
-      <p>{theme}</p>
+      {loadingThemedList && <h3>Loading</h3>}
+      {!loadingThemedList && 
+      <section className="search-results">
+        <h3>{themedList[0].posts.length} results for '{theme}'.</h3>
+        {themedList[0].posts.map(title => {
+          return (
+            <Link to={`post/${title}`} >{title}</Link>
+          );
+        })}
+      </section>
+      }
     </section>
   )
 };

@@ -24,6 +24,7 @@ const Post = (props) => {
           } 
             `
         );
+        console.log(result)
         const resultWithDate = readableDate(result);
         setArticle(resultWithDate);
         setArticleLoading(false);
