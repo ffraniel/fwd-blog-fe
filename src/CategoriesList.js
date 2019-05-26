@@ -16,7 +16,7 @@ const CategoriesList = (props) => {
       let postsByTheme = await client.fetch(
         `*[_type == "category" && title == "${theme}"]{
           _id, title,
-          "posts": *[_type == "post" && references(^._id)].title 
+          "posts": *[_type == "post" && references(^._id)]{title, "slug": slug.current}  
         }`
       );
       if (postsByTheme.length === 0) {
@@ -44,9 +44,10 @@ const CategoriesList = (props) => {
       {!loadingThemedList && 
       <section className="search-results">
         <h3>{themedList[0].posts.length} results for '{theme}'.</h3>
-        {themedList[0].posts.map(title => {
+        {themedList[0].posts.map(post => {
+          let { title, slug } = post;
           return (
-            <Link to={`post/${title}`} >{title}</Link>
+            <Link to={`/post/${slug}`}>{title}</Link>
           );
         })}
       </section>
