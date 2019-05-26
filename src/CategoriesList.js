@@ -47,7 +47,7 @@ const CategoriesList = (props) => {
         {themedList[0].posts.map(post => {
           let { title, slug } = post;
           return (
-            <Link to={`/post/${slug}`}>{title}</Link>
+            <Link className="search-results-link" to={`/post/${slug}`}>{title}</Link>
           );
         })}
       </section>
