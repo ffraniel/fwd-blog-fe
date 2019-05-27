@@ -34,8 +34,8 @@
   font-size: 0.7em;
   padding: 0;
   margin: 2px 0;
+  color: rgb(253, 250, 250);
 }
-
 
 .mobile-nav-burger {
   display: block;
@@ -43,14 +43,12 @@
   border-radius: 3px;
   height: 40px;
   width: 40px;
-  background-color: yellow;
   transition: background-color 0.25s;
-  border: yellow 1px solid;
   margin: 10px;
 }
 
 .mobile-nav-burger:hover {
-  background-color:  rgba(175, 175, 175, 0.5);
+  background-color:  rgba(255, 240, 240, 0.6);
 }
 
 .mobile-nav-burger span {

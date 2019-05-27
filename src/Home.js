@@ -28,7 +28,6 @@ const Home = () => {
           "posts": *[_type == "post" && references(^._id)].title
         }`
       );
-      console.log(categoriesResults)
       setCategories(categoriesResults);
       setCatLoading(false);
     };
@@ -43,7 +42,7 @@ const Home = () => {
         <p className="sub-sub-title">Javascript and Web developer </p>
         <p className="tag-line">I'm just a boy standing in front of the internet, asking it to love me.</p>
       </section>
-      {loading && <h1>Loading</h1>}
+      {loading && <h1 className="loading">Loading</h1>}
       {!loading && <ArticlesList posts={posts}/>}      
       <footer className="footer">
         {catLoading && <p>Loading Categories</p>}

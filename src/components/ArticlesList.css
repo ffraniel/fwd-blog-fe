@@ -4,22 +4,17 @@
 
 .list-article-link {
   text-decoration: none;
-  color: var(--primaryLinkColour);
-  padding: 3px;
-  margin: 3px 0;
-  display: inline-block;
-};
+  color: var(--nearBlack);
+  transition: color 0.25s;
+
+}
 
 .list-article-link:hover {
   color: purple;
-};
-
-.articles-list .articles-list-container {
-  border: yellow solid 1px;
-  margin: 10px 0;
 }
 
 .list-article-date {
-  font-size: 0.7rem;
-  margin: 0 auto;
+  font-size: 0.8rem;
+  color: var(--nearBlack);
+
 }

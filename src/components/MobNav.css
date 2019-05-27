@@ -24,7 +24,7 @@
 }
 
 .mob-nav-link:hover {
-  background: grey;
+  background: rgba(191, 216, 185, 0.555);
 }
 
 .mob-nav-link:active {

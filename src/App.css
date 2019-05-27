@@ -2,13 +2,18 @@
   --nearBlack: rgb(15, 15, 15);
   --nearWhite: rgb(253, 253, 253);
   --navPadding: 85px;
-  --primaryLinkColour: rgb(253, 253, 253);
+  --primaryLinkColour: rgb(206, 83, 83);
   --primaryLinkHover: green;
 }
 
 body {
   margin: 0;
   background-color: var(--nearBlack);
-  color: var(--nearWhite);
+  background-color: rgb(251, 252, 255);
+  color: var(--nearBlack);
   font-family: 'Rubik';
+}
+
+.loading {
+  margin: 75px 40px;
 }
