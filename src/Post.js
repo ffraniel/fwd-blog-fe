@@ -3,11 +3,13 @@ import './Post.css';
 import client from './client';
 import readableDate from './utility/readableDate';
 import imageURLBuilder from './utility/imageURLBuilder';
+import { Link } from "react-router-dom";
 
 const Post = (props) => {
 
   const [article, setArticle] = useState(null);
   const [articleLoading, setArticleLoading] = useState(true);
+  const [postCategories, setPostCategories] = useState(null);
 
   useEffect(() => {
     const getArticle = async () => {
@@ -20,12 +22,12 @@ const Post = (props) => {
             slug,
             body,
             author,
-            categories
+            "categoriesList": categories[]->title
           } 
             `
         );
-        console.log(result)
         const resultWithDate = readableDate(result);
+        setPostCategories(result.categoriesList);
         setArticle(resultWithDate);
         setArticleLoading(false);
     };
@@ -57,6 +59,15 @@ const Post = (props) => {
             )
           })}
         </article>}
+      <footer className="post-footer">
+          <ul>
+          {!articleLoading && 
+            postCategories.map(category => (
+              <Link className="post-footer-category-link" key={category} to={`/category/${category}`}>{category}</Link>
+            ))
+          }
+          </ul>
+      </footer>
     </section>
   )
 };

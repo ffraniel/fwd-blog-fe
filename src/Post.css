@@ -13,6 +13,24 @@
   width: 100%;
 }
 
+.post-footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  background-color: rgb(122, 122, 112);
+  min-height: 75px;
+}
+
+.post-footer ul {
+  margin: auto 40px;
+}
+
+.post-footer-category-link {
+  background: #f0ed41;
+  color: black;
+  text-decoration: none;
+}
+
 @media only screen and (min-width: 650px) {
   .article-text-image {
     max-width: 100%;
