@@ -37,7 +37,6 @@ const CategoriesList = (props) => {
       </section>
     )    
   }
-  console.log(themedList)
   return (
     <section className="categories-list">
       {loadingThemedList && <h3>Loading</h3>}

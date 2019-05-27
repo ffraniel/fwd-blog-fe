@@ -5,4 +5,14 @@
 
 .search-results-link {
   display: block;
+  text-decoration: none;
+  color: var(--nearBlack);
+  transition: color 0.25s;
+  margin: 10px 0;
+}
+
+
+
+.search-results-link:hover {
+  color: purple;
 }
