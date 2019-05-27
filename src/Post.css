@@ -21,14 +21,11 @@
   min-height: 75px;
 }
 
-.post-footer ul {
-  margin: auto 40px;
-}
-
 .post-footer-category-link {
   background: #f0ed41;
   color: black;
   text-decoration: none;
+  margin: auto 10px;
 }
 
 @media only screen and (min-width: 650px) {
