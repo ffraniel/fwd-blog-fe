@@ -36,7 +36,7 @@ const Post = (props) => {
 
   return (
     <section className="post">
-      {articleLoading && <h1>Loading</h1>}
+      {articleLoading && <h1 className="post-loading">Loading</h1>}
       {!articleLoading && 
         <article className="article">
           <h3 className="article-title">{article.title}</h3> 
@@ -60,13 +60,11 @@ const Post = (props) => {
           })}
         </article>}
       <footer className="post-footer">
-          <ul>
-          {!articleLoading && 
+          {!articleLoading && postCategories &&
             postCategories.map(category => (
               <Link className="post-footer-category-link" key={category} to={`/category/${category}`}>{category}</Link>
             ))
           }
-          </ul>
       </footer>
     </section>
   )

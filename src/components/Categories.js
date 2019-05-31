@@ -8,9 +8,7 @@ const Categories = (props) => {
     <section className="categories-footer-list">
       {categories.map(category => {
         return (
-          <ul key={category._id}>
-            <Link className="category-footer-list-item" to={`category/${category.title}`} >{category.title}</Link>
-          </ul>
+          <Link key={category._id} className="category-footer-list-item" to={`category/${category.title}`} >{category.title}</Link>
         );
       })}
     </section>

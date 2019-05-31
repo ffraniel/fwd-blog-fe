@@ -1,18 +1,16 @@
 .categories-list {
   padding-top: var(--navPadding);
-  margin: 0 40px;
+}
+
+.search-results h3 {
+  color: var(--mainPink);
 }
 
 .search-results-link {
-  display: block;
   text-decoration: none;
-  color: var(--nearBlack);
   transition: color 0.25s;
-  margin: 10px 0;
 }
 
-
-
 .search-results-link:hover {
-  color: purple;
+  color: var(--secondaryPink);
 }

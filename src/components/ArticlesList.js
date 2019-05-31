@@ -4,6 +4,15 @@ import { Link } from "react-router-dom";
 
 const ArticlesList = (props) => {
   const { posts } = props;
+  // const getPostLengths = (num) => {
+  //   if (num % 2 === 1) {
+  //     return num - 1;
+  //   } else {
+  //     return num;
+  //   }
+  // };
+  // const postLengths = getPostLengths(posts.length);
+  // posts.length = postLengths;
   return (
       <section className="articles-list">
         {posts.map(post => (

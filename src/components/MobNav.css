@@ -1,7 +1,7 @@
 .mob-nav {
   padding-top: var(--navPadding);
-  background-color: rgb(131, 207, 131);
-  z-index: 0;
+  background-color: rgb(151, 156, 179);
+  z-index: 1;
   position: fixed;
   width: 100%;
   transition: transform 0.5s;
@@ -17,7 +17,7 @@
 
 .mob-nav-link {
   display: block;
-  color: var(--primaryLinkColour);
+  color: rgb(255, 194, 252);
   text-decoration: none;
   font-size: 2.5rem;
   text-align: center;
@@ -28,8 +28,8 @@
 }
 
 .mob-nav-link:active {
-  background: white;
-  color: black;
+  background: rgba(105, 116, 211, 0.404);
+  color: rgb(128, 175, 0);
 }
 
 .close-nav {

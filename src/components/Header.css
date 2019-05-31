@@ -3,24 +3,26 @@
 }
 
 .nav {
-  background: rgb(255, 155, 222);
+  background-color: rgba(255, 255, 255, 0.9);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+
 }
 
 .nav-link {
-  color: white;
+  color: var(--secondaryPink);
   font-size: 1rem;
   margin: 10px;
   text-decoration: none;
+  transition: 0.25s color;
 }
 
 .nav-link:hover {
-  color: rgb(73, 192, 73);
+  color: var(--mainPink);
 }
 
 .nav-link-title {
@@ -34,7 +36,7 @@
   font-size: 0.7em;
   padding: 0;
   margin: 2px 0;
-  color: rgb(253, 250, 250);
+  color: rgb(255, 155, 222);
 }
 
 .mobile-nav-burger {
@@ -52,7 +54,7 @@
 }
 
 .mobile-nav-burger span {
-  border: 2px white solid;
+  border: 2px var(--secondPinkColour) solid;
   border-radius: 10px;
   width: 50%;
   margin: 15% auto;

@@ -38,15 +38,20 @@ const Home = () => {
   return (
     <section className="home">
       <section className="title-bar">
-        <h3 className="sub-title">Fran Whitehead</h3>
-        <p className="sub-sub-title">Javascript and Web developer </p>
-        <p className="tag-line">I'm just a boy standing in front of the internet, asking it to love me.</p>
+        <h2 className="title-text">Fran Whitehead</h2>
+        <h3 className="sub-title">Sometimes I code and think and sometimes i just code</h3>
+        <p className="sub-sub-title">Thoughts about the web platform, Javascript and being a developer </p>
+        {/* <p className="tag-line">I'm just a boy standing in front of the internet, asking it to love me.</p> */}
       </section>
+
       {loading && <h1 className="loading">Loading</h1>}
       {!loading && <ArticlesList posts={posts}/>}      
+
       <footer className="footer">
+
         {catLoading && <p>Loading Categories</p>}
         {!catLoading && <Categories categories={categories} />}
+        
       </footer>
     </section>
   )
